@@ -16,4 +16,30 @@ export class ShoppingListService {
     this.ingredients.push(ingredient);
     this.ingredientsChanged.emit(this.ingredients.slice());    
   }
+
+  addIngredients(ingredients: Ingredient[]){
+    // for(let ingredient of ingredients){
+    //   this.addIngredient(ingredient);
+    //   }
+    // }
+    // this.ingredients.push(...ingredients);
+    for(let newIngredient of ingredients){
+      // console.log("finding match for " + newIngredient.name);
+      let isIngredientPresent: boolean = false;
+      for(let ingredient of this.ingredients){
+        // console.log("matching with" + ingredient.name);
+        if(ingredient.name == newIngredient.name){
+
+          // console.log(" " + newIngredient.name + " matched with " + ingredient.name);
+          ingredient.amount += newIngredient.amount;
+          isIngredientPresent = true;
+          break;
+        }
+      }
+      if(!isIngredientPresent){
+        this.ingredients.push(newIngredient);
+      }
+    }
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }
