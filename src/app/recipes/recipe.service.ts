@@ -42,5 +42,9 @@ export class RecipeService{
     // console.log(ingredients);
     this.slService.addIngredients(ingredients);
   }
+
+  getRecipe(index: number): Recipe{
+    return this.recipes.slice()[index];
+  }
   
 }
