@@ -11,9 +11,5 @@ import {
 })
 
 export class HeaderComponent {
-  @Output('featureSelected') featureSelected = new EventEmitter<string>();
-
-  onSelect(shownComponent: string){
-    this.featureSelected.emit(shownComponent);
-  }
+  
 }

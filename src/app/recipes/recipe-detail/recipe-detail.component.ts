@@ -7,6 +7,7 @@ import {
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { Ingredient } from '../../shared/ingredient.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -16,7 +17,7 @@ import { Ingredient } from '../../shared/ingredient.model';
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
   
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
